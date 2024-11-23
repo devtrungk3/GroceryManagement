@@ -1,0 +1,16 @@
+D:\cs_workspace\GroceryManagement\DAL\bin\Debug\net8.0\DAL.deps.json
+D:\cs_workspace\GroceryManagement\DAL\bin\Debug\net8.0\DAL.dll
+D:\cs_workspace\GroceryManagement\DAL\bin\Debug\net8.0\DAL.pdb
+D:\cs_workspace\GroceryManagement\DAL\bin\Debug\net8.0\DTO.dll
+D:\cs_workspace\GroceryManagement\DAL\bin\Debug\net8.0\DTO.pdb
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.sourcelink.json
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.csproj.Up2Date
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.dll
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\refint\DAL.dll
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\DAL.pdb
+D:\cs_workspace\GroceryManagement\DAL\obj\Debug\net8.0\ref\DAL.dll

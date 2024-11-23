@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="admin\Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Adjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Price.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Revenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Unit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="authentication\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="inventory\Adjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="inventory\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="inventory\Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="inventory\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="inventory\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="inventory\Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

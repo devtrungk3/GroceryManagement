@@ -1,0 +1,12 @@
+D:\cs_workspace\GroceryManagement\DTO\bin\Debug\net8.0\DTO.deps.json
+D:\cs_workspace\GroceryManagement\DTO\bin\Debug\net8.0\DTO.dll
+D:\cs_workspace\GroceryManagement\DTO\bin\Debug\net8.0\DTO.pdb
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.AssemblyInfoInputs.cache
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.AssemblyInfo.cs
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.csproj.CoreCompileInputs.cache
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.sourcelink.json
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.dll
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\refint\DTO.dll
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\DTO.pdb
+D:\cs_workspace\GroceryManagement\DTO\obj\Debug\net8.0\ref\DTO.dll
