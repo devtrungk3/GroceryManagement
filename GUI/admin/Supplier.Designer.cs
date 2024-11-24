@@ -34,10 +34,14 @@
             txtSearch = new TextBox();
             btnUpdate = new Button();
             label3 = new Label();
-            label2 = new Label();
+            lbPageNumber = new Label();
             btnPrevious = new Button();
             btnNext = new Button();
             viewSupplier = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             btnAdd = new Button();
             groupBox1 = new GroupBox();
             txtAddress = new TextBox();
@@ -49,10 +53,6 @@
             label8 = new Label();
             txtSupplierName = new TextBox();
             btnDelete = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)viewSupplier).BeginInit();
             groupBox1.SuspendLayout();
@@ -96,6 +96,7 @@
             txtSearch.PlaceholderText = "Nhập tên hoặc số điện thoại";
             txtSearch.Size = new Size(363, 34);
             txtSearch.TabIndex = 13;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // btnUpdate
             // 
@@ -115,15 +116,15 @@
             label3.Size = new Size(0, 20);
             label3.TabIndex = 20;
             // 
-            // label2
+            // lbPageNumber
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(576, 709);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 30);
-            label2.TabIndex = 19;
-            label2.Text = "1";
+            lbPageNumber.AutoSize = true;
+            lbPageNumber.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbPageNumber.Location = new Point(576, 709);
+            lbPageNumber.Name = "lbPageNumber";
+            lbPageNumber.Size = new Size(27, 30);
+            lbPageNumber.TabIndex = 19;
+            lbPageNumber.Text = "1";
             // 
             // btnPrevious
             // 
@@ -155,6 +156,39 @@
             viewSupplier.RowHeadersWidth = 51;
             viewSupplier.Size = new Size(1001, 320);
             viewSupplier.TabIndex = 16;
+            viewSupplier.CellContentClick += viewSupplier_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Mã nhà cung cấp";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Tên nhà cung cấp";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Số điện thoại";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Địa chỉ";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 125;
             // 
             // btnAdd
             // 
@@ -264,38 +298,7 @@
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã nhà cung cấp";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên nhà cung cấp";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Số điện thoại";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Địa chỉ";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 125;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Supplier
             // 
@@ -306,7 +309,7 @@
             Controls.Add(groupBox1);
             Controls.Add(btnUpdate);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(lbPageNumber);
             Controls.Add(btnPrevious);
             Controls.Add(btnNext);
             Controls.Add(viewSupplier);
@@ -335,7 +338,7 @@
         private TextBox txtSearch;
         private Button btnUpdate;
         private Label label3;
-        private Label label2;
+        private Label lbPageNumber;
         private Button btnPrevious;
         private Button btnNext;
         private DataGridView viewSupplier;
