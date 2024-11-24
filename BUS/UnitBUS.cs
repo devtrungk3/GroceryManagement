@@ -11,7 +11,7 @@ namespace BUS
     public class UnitBUS
     {
         private UnitDAL unitDAL = new UnitDAL();
-        public List<UnitDTO> GetUnits(int pageNumber, int limit)
+        public List<UnitDTO> GetUnits()
         {
             return unitDAL.FindAllUnits();
         }
