@@ -32,7 +32,7 @@ namespace GUI.admin
         private void LoadUnitTable()
         {
             List<UnitDTO> list;
-            if (txtSearch.Text == "") list = unitBUS.GetUnits(pageNumber, limit);
+            if (txtSearch.Text == "") list = unitBUS.GetUnitsWithPaging(pageNumber, limit);
             else list = unitBUS.GetUnitsByUnitName(pageNumber, limit, txtSearch.Text);
             if (list.Count == 0)
             {

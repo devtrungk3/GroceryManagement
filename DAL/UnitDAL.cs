@@ -10,6 +10,28 @@ namespace DAL
 {
     public class UnitDAL : DBConnection
     {
+        public List<UnitDTO> FindAllUnits()
+        {
+            List<UnitDTO> units = new List<UnitDTO>();
+            try
+            {
+                OpenConnection();
+                string query = $"select unit_id, unit_id from UNIT order by unit_id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                int unitID;
+                string unitName;
+                while (reader.Read())
+                {
+                    unitID = reader.GetInt32(0);
+                    unitName = reader.GetString(1);
+                    units.Add(new UnitDTO(unitID, unitName));
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            finally { CloseConnection(); }
+            return units;
+        }
         public List<UnitDTO> FindAllUnitsWithPaging(int pageNumber, int limit)
         {
             List<UnitDTO> units = new List<UnitDTO>();

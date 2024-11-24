@@ -13,6 +13,11 @@ namespace BUS
         private UnitDAL unitDAL = new UnitDAL();
         public List<UnitDTO> GetUnits(int pageNumber, int limit)
         {
+            return unitDAL.FindAllUnits();
+        }
+
+        public List<UnitDTO> GetUnitsWithPaging(int pageNumber, int limit)
+        {
             return unitDAL.FindAllUnitsWithPaging(pageNumber, limit);
         }
 
