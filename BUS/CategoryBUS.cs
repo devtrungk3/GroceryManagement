@@ -11,9 +11,14 @@ namespace BUS
     public class CategoryBUS
     {
         private CategoryDAL categoryDAL = new CategoryDAL();
-        public List<CategoryDTO> GetCategories(int pageNumber, int limit)
+        public List<CategoryDTO> GetCategoriesWithPaging(int pageNumber, int limit)
         {
             return categoryDAL.FindAllCategoriesWithPaging(pageNumber, limit);
+        }
+
+        public List<CategoryDTO> GetCategories()
+        {
+            return categoryDAL.FindAllCategories();
         }
         public string InsertCategory(CategoryDTO category)
         {

@@ -11,6 +11,28 @@ namespace DAL
 {
     public class CategoryDAL: DBConnection
     {
+        public List<CategoryDTO> FindAllCategories()
+        {
+            List<CategoryDTO> categories = new List<CategoryDTO>();
+            try
+            {
+                OpenConnection();
+                string query = $"select category_id, category_name from CATEGORY order by category_id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                int categoryID;
+                string categoryName;
+                while (reader.Read())
+                {
+                    categoryID = reader.GetInt32(0);
+                    categoryName = reader.GetString(1);
+                    categories.Add(new CategoryDTO(categoryID, categoryName));
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            finally { CloseConnection(); }
+            return categories;
+        }
         public List<CategoryDTO> FindAllCategoriesWithPaging(int pageNumber, int limit)
         {
             List<CategoryDTO> categories = new List<CategoryDTO>();
