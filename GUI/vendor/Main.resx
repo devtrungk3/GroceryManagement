@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhMAAwAPYAAAAAACGK0SKL0SCL0iGM0iOM0iKN0ySN0iSN0ySO0yWO1CWP1CaR1SaQ1iiU1yKQ
         2iKS3SeV3SeW3huV6xyW6x2X6x2X7B6Y7B6Y7R+Z7SKU4CKU4SWX4iiX4SaY4yeY4yeY5CSZ5yWZ5yiZ

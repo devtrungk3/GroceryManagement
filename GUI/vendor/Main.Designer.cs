@@ -34,9 +34,9 @@
             openOrderBtn = new Button();
             label1 = new Label();
             openSellerBtn = new Button();
-            pictureBox1 = new PictureBox();
+            btnLogout = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnLogout).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -46,7 +46,7 @@
             panel1.Controls.Add(openOrderBtn);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(openSellerBtn);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnLogout);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -112,16 +112,17 @@
             openSellerBtn.UseVisualStyleBackColor = false;
             openSellerBtn.Click += openSellerBtn_Click;
             // 
-            // pictureBox1
+            // btnLogout
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(36, 674);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(50, 50);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            btnLogout.Cursor = Cursors.Hand;
+            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
+            btnLogout.Location = new Point(36, 674);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(50, 50);
+            btnLogout.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnLogout.TabIndex = 0;
+            btnLogout.TabStop = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // Main
             // 
@@ -136,14 +137,14 @@
             Load += Main_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnLogout).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
+        private PictureBox btnLogout;
         private Button openSellerBtn;
         private Label label1;
         private Button openOrderBtn;

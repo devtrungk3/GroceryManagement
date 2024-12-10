@@ -27,7 +27,6 @@ D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.pdb
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.genruntimeconfig.cache
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\ref\GUI.dll
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.Properties.Resources.resources
-D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.admin.Dashboard.resources
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.admin.Main.resources
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.inventory.Main.resources
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.admin.Category.resources
@@ -49,3 +48,8 @@ D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.inventory.Pro
 D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.inventory.Purchase.resources
 D:\cs_workspace\GroceryManagement\GUI\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\cs_workspace\GroceryManagement\GUI\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.admin.Conversion.resources
+D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.vendor.Account.resources
+D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.vendor.Main.resources
+D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.vendor.Order.resources
+D:\cs_workspace\GroceryManagement\GUI\obj\Debug\net8.0-windows\GUI.vendor.Seller.resources

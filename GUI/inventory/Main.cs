@@ -1,5 +1,6 @@
 ﻿using DTO;
 using GUI.admin;
+using GUI.authentication;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +21,10 @@ namespace GUI.inventory
         private Purchase? purchase;
         private Adjustment? adjustment;
         private Profile? profile;
-        private AccountDTO Acc {  get; set; }
+        private AccountDTO account;
         public Main(AccountDTO account)
         {
-            Acc = account;
+            this.account = account;
             InitializeComponent();
         }
 
@@ -100,7 +101,7 @@ namespace GUI.inventory
         {
             if (profile == null)
             {
-                profile = new Profile();
+                profile = new Profile(account.Username);
                 profile.FormClosed += Profile_FormClosed;
                 profile.MdiParent = this;
                 profile.Dock = DockStyle.Fill;
@@ -134,6 +135,13 @@ namespace GUI.inventory
         private void Purchase_FormClosed(object sender, FormClosedEventArgs e)
         {
             purchase = null;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

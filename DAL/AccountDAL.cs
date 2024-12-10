@@ -34,6 +34,39 @@ namespace DAL
             finally { CloseConnection(); }
             return null;
         }
+        public bool UpdatePassword(string username, string password)
+        {
+            try
+            {
+                OpenConnection();
+                string query = $"update ACCOUNT set password = '{password}' where username = '{username}'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            finally { CloseConnection(); }
+            return false;
+        }
+        public AccountDTO? FindAccountByUsername(string username)
+        {
+            try
+            {
+                OpenConnection();
+                string query = $"select fullname, phone from ACCOUNT where username = '{username}'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                string fullname, phone;
+                while (reader.Read())
+                {
+                    fullname = reader.GetString(0);
+                    phone = reader.GetString(1);
+                    return new AccountDTO(username, "", fullname, phone, null);
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            finally { CloseConnection(); }
+            return null;
+        }
         public List<AccountDTO> FindAllAccounts()
         {
             List<AccountDTO> accounts = new List<AccountDTO>();

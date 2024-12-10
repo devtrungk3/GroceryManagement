@@ -30,14 +30,6 @@
         {
             panel1 = new Panel();
             label1 = new Label();
-            viewAccount = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            viewRole = new DataGridView();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
             label4 = new Label();
             txtSearch = new TextBox();
             groupBox2 = new GroupBox();
@@ -54,9 +46,15 @@
             btnAddAccount = new Button();
             btnUpdateAccount = new Button();
             btnDeleteAccount = new Button();
+            viewAccount = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            viewRole = new ListView();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewAccount).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)viewRole).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,79 +77,6 @@
             label1.Size = new Size(179, 40);
             label1.TabIndex = 0;
             label1.Text = "Tài khoản";
-            // 
-            // viewAccount
-            // 
-            viewAccount.AllowUserToAddRows = false;
-            viewAccount.AllowUserToDeleteRows = false;
-            viewAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewAccount.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            viewAccount.Location = new Point(22, 437);
-            viewAccount.Name = "viewAccount";
-            viewAccount.ReadOnly = true;
-            viewAccount.RowHeadersWidth = 51;
-            viewAccount.Size = new Size(768, 270);
-            viewAccount.TabIndex = 6;
-            viewAccount.CellContentClick += viewAccount_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Tên tài khoản";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Họ tên";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Số điện thoại";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Vai trò";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 125;
-            // 
-            // viewRole
-            // 
-            viewRole.AllowUserToAddRows = false;
-            viewRole.AllowUserToDeleteRows = false;
-            viewRole.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewRole.Columns.AddRange(new DataGridViewColumn[] { Column5, Column6 });
-            viewRole.Location = new Point(823, 437);
-            viewRole.Name = "viewRole";
-            viewRole.ReadOnly = true;
-            viewRole.RowHeadersWidth = 51;
-            viewRole.Size = new Size(321, 270);
-            viewRole.TabIndex = 7;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Mã vai trò";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Tên vai trò";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.Width = 125;
             // 
             // label4
             // 
@@ -313,19 +238,76 @@
             btnDeleteAccount.UseVisualStyleBackColor = true;
             btnDeleteAccount.Click += btnDeleteAccount_Click;
             // 
+            // viewAccount
+            // 
+            viewAccount.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            viewAccount.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewAccount.FullRowSelect = true;
+            viewAccount.GridLines = true;
+            viewAccount.Location = new Point(22, 437);
+            viewAccount.Name = "viewAccount";
+            viewAccount.Size = new Size(768, 280);
+            viewAccount.TabIndex = 33;
+            viewAccount.UseCompatibleStateImageBehavior = false;
+            viewAccount.View = View.Details;
+            viewAccount.SelectedIndexChanged += viewAccount_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Tên tài khoản";
+            columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Tên đầy đủ";
+            columnHeader2.Width = 220;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Số điện thoại";
+            columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Vai trò";
+            columnHeader4.Width = 140;
+            // 
+            // viewRole
+            // 
+            viewRole.Columns.AddRange(new ColumnHeader[] { columnHeader5, columnHeader6 });
+            viewRole.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewRole.FullRowSelect = true;
+            viewRole.GridLines = true;
+            viewRole.Location = new Point(820, 437);
+            viewRole.Name = "viewRole";
+            viewRole.Size = new Size(321, 280);
+            viewRole.TabIndex = 34;
+            viewRole.UseCompatibleStateImageBehavior = false;
+            viewRole.View = View.Details;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Mã danh mục";
+            columnHeader5.Width = 140;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "Tên danh mục";
+            columnHeader6.Width = 170;
+            // 
             // Account
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(viewRole);
+            Controls.Add(viewAccount);
             Controls.Add(btnDeleteAccount);
             Controls.Add(btnUpdateAccount);
             Controls.Add(btnAddAccount);
             Controls.Add(groupBox2);
             Controls.Add(label4);
             Controls.Add(txtSearch);
-            Controls.Add(viewRole);
-            Controls.Add(viewAccount);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Account";
@@ -333,8 +315,6 @@
             Load += Account_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewAccount).EndInit();
-            ((System.ComponentModel.ISupportInitialize)viewRole).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -345,8 +325,6 @@
 
         private Panel panel1;
         private Label label1;
-        private DataGridView viewAccount;
-        private DataGridView viewRole;
         private Label label4;
         private TextBox txtSearch;
         private GroupBox groupBox2;
@@ -362,12 +340,14 @@
         private TextBox txtAccountRoleID;
         private Button btnAddAccount;
         private Button btnUpdateAccount;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
         private Button btnDeleteAccount;
+        private ListView viewAccount;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ListView viewRole;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
     }
 }

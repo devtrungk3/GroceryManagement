@@ -14,7 +14,6 @@ namespace GUI.admin
 {
     public partial class Main : Form
     {
-        private Dashboard? dashboard;
         private Category? category;
         private Supplier? supplier;
         private Product? product;
@@ -26,31 +25,12 @@ namespace GUI.admin
         private Order? order;
         private Import? import;
         private Adjustment? adjustment;
+        private Conversion? conversion;
         private AccountDTO accountDTO;
         public Main(AccountDTO account)
         {
             accountDTO = account;
             InitializeComponent();
-        }
-
-        private void openDashboardBtn_Click(object sender, EventArgs e)
-        {
-            if (dashboard == null)
-            {
-                dashboard = new Dashboard();
-                dashboard.FormClosed += Dashboard_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Dock = DockStyle.Fill;
-                dashboard.Show();
-            }
-            else
-            {
-                dashboard.Activate();
-            }
-        }
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            dashboard = null;
         }
 
         private void openCategoryBtn_Click(object sender, EventArgs e)
@@ -75,11 +55,11 @@ namespace GUI.admin
 
         private void Main_Load(object sender, EventArgs e)
         {
-            dashboard = new Dashboard();
-            dashboard.FormClosed += Dashboard_FormClosed;
-            dashboard.MdiParent = this;
-            dashboard.Dock = DockStyle.Fill;
-            dashboard.Show();
+            revenue = new Revenue();
+            revenue.FormClosed += Revenue_FormClosed;
+            revenue.MdiParent = this;
+            revenue.Dock = DockStyle.Fill;
+            revenue.Show();
         }
 
         private void openSupplierBtn_Click(object sender, EventArgs e)
@@ -114,6 +94,7 @@ namespace GUI.admin
             }
             else
             {
+                product.reset = true;
                 product.Activate();
             }
         }
@@ -280,6 +261,25 @@ namespace GUI.admin
         private void Adjustment_FormClosed(object sender, FormClosedEventArgs e)
         {
             adjustment = null;
+        }
+        private void openConversionBtn_Click(object sender, EventArgs e)
+        {
+            if (conversion == null)
+            {
+                conversion = new Conversion();
+                conversion.FormClosed += Conversion_FormClosed;
+                conversion.MdiParent = this;
+                conversion.Dock = DockStyle.Fill;
+                conversion.Show();
+            }
+            else
+            {
+                conversion.Activate();
+            }
+        }
+        private void Conversion_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            conversion = null;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

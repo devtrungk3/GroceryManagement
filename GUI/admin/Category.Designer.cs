@@ -32,9 +32,6 @@
             panel1 = new Panel();
             txtSearch = new TextBox();
             btnAdd = new Button();
-            viewCategory = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             btnNext = new Button();
             btnPrevious = new Button();
             lbPageNumber = new Label();
@@ -47,8 +44,10 @@
             label5 = new Label();
             txtCategoryName = new TextBox();
             btnDelete = new Button();
+            viewCategory = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewCategory).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -91,39 +90,9 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // viewCategory
-            // 
-            viewCategory.AllowUserToAddRows = false;
-            viewCategory.AllowUserToDeleteRows = false;
-            viewCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewCategory.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            viewCategory.Location = new Point(87, 336);
-            viewCategory.Name = "viewCategory";
-            viewCategory.ReadOnly = true;
-            viewCategory.RowHeadersWidth = 51;
-            viewCategory.Size = new Size(1001, 320);
-            viewCategory.TabIndex = 5;
-            viewCategory.CellContentClick += viewCategory_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã danh mục";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên danh mục";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
-            // 
             // btnNext
             // 
-            btnNext.Location = new Point(626, 670);
+            btnNext.Location = new Point(626, 660);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(94, 29);
             btnNext.TabIndex = 6;
@@ -133,7 +102,7 @@
             // 
             // btnPrevious
             // 
-            btnPrevious.Location = new Point(454, 670);
+            btnPrevious.Location = new Point(454, 660);
             btnPrevious.Name = "btnPrevious";
             btnPrevious.Size = new Size(94, 29);
             btnPrevious.TabIndex = 7;
@@ -145,7 +114,7 @@
             // 
             lbPageNumber.AutoSize = true;
             lbPageNumber.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbPageNumber.Location = new Point(574, 670);
+            lbPageNumber.Location = new Point(574, 660);
             lbPageNumber.Name = "lbPageNumber";
             lbPageNumber.Size = new Size(27, 30);
             lbPageNumber.TabIndex = 8;
@@ -239,11 +208,36 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // viewCategory
+            // 
+            viewCategory.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            viewCategory.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewCategory.FullRowSelect = true;
+            viewCategory.GridLines = true;
+            viewCategory.Location = new Point(87, 336);
+            viewCategory.Name = "viewCategory";
+            viewCategory.Size = new Size(1001, 303);
+            viewCategory.TabIndex = 15;
+            viewCategory.UseCompatibleStateImageBehavior = false;
+            viewCategory.View = View.Details;
+            viewCategory.SelectedIndexChanged += viewCategory_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Mã danh mục";
+            columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Tên danh mục";
+            columnHeader2.Width = 800;
+            // 
             // Category
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(viewCategory);
             Controls.Add(btnDelete);
             Controls.Add(groupBox1);
             Controls.Add(label4);
@@ -252,7 +246,6 @@
             Controls.Add(lbPageNumber);
             Controls.Add(btnPrevious);
             Controls.Add(btnNext);
-            Controls.Add(viewCategory);
             Controls.Add(btnAdd);
             Controls.Add(txtSearch);
             Controls.Add(panel1);
@@ -262,7 +255,6 @@
             Load += Category_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewCategory).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -275,7 +267,6 @@
         private Panel panel1;
         private TextBox txtSearch;
         private Button btnAdd;
-        private DataGridView viewCategory;
         private Button btnNext;
         private Button btnPrevious;
         private Label lbPageNumber;
@@ -288,7 +279,8 @@
         private Label label6;
         private TextBox txtCategoryID;
         private Button btnDelete;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
+        private ListView viewCategory;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }

@@ -30,10 +30,6 @@
         {
             panel1 = new Panel();
             label1 = new Label();
-            label2 = new Label();
-            btnPrevious = new Button();
-            btnNext = new Button();
-            viewAdjustment = new DataGridView();
             label4 = new Label();
             dtpCreateAdjustment = new DateTimePicker();
             groupBox1 = new GroupBox();
@@ -48,13 +44,13 @@
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
+            viewAdjustment = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewAdjustment).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,47 +74,6 @@
             label1.TabIndex = 0;
             label1.Text = "Điều chỉnh";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(572, 709);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 30);
-            label2.TabIndex = 27;
-            label2.Text = "1";
-            // 
-            // btnPrevious
-            // 
-            btnPrevious.Location = new Point(452, 709);
-            btnPrevious.Name = "btnPrevious";
-            btnPrevious.Size = new Size(94, 29);
-            btnPrevious.TabIndex = 26;
-            btnPrevious.Text = "Trước";
-            btnPrevious.UseVisualStyleBackColor = true;
-            // 
-            // btnNext
-            // 
-            btnNext.Location = new Point(624, 709);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(94, 29);
-            btnNext.TabIndex = 25;
-            btnNext.Text = "Sau";
-            btnNext.UseVisualStyleBackColor = true;
-            // 
-            // viewAdjustment
-            // 
-            viewAdjustment.AllowUserToAddRows = false;
-            viewAdjustment.AllowUserToDeleteRows = false;
-            viewAdjustment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewAdjustment.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            viewAdjustment.Location = new Point(84, 375);
-            viewAdjustment.Name = "viewAdjustment";
-            viewAdjustment.ReadOnly = true;
-            viewAdjustment.RowHeadersWidth = 51;
-            viewAdjustment.Size = new Size(1001, 320);
-            viewAdjustment.TabIndex = 24;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -137,6 +92,7 @@
             dtpCreateAdjustment.Name = "dtpCreateAdjustment";
             dtpCreateAdjustment.Size = new Size(316, 30);
             dtpCreateAdjustment.TabIndex = 22;
+            dtpCreateAdjustment.ValueChanged += dtpCreateAdjustment_ValueChanged;
             // 
             // groupBox1
             // 
@@ -236,6 +192,7 @@
             btnAdd.TabIndex = 31;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -245,6 +202,7 @@
             btnUpdate.TabIndex = 32;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -254,60 +212,57 @@
             btnDelete.TabIndex = 33;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // Column1
+            // viewAdjustment
             // 
-            Column1.HeaderText = "Mã điều chỉnh";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
+            viewAdjustment.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            viewAdjustment.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewAdjustment.FullRowSelect = true;
+            viewAdjustment.GridLines = true;
+            viewAdjustment.Location = new Point(84, 385);
+            viewAdjustment.Name = "viewAdjustment";
+            viewAdjustment.Size = new Size(1001, 303);
+            viewAdjustment.TabIndex = 35;
+            viewAdjustment.UseCompatibleStateImageBehavior = false;
+            viewAdjustment.View = View.Details;
+            viewAdjustment.SelectedIndexChanged += viewAdjustment_SelectedIndexChanged;
             // 
-            // Column2
+            // columnHeader1
             // 
-            Column2.HeaderText = "Tên sản phẩm";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
+            columnHeader1.Text = "Mã";
+            columnHeader1.Width = 80;
             // 
-            // Column3
+            // columnHeader2
             // 
-            Column3.HeaderText = "Số lượng";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
+            columnHeader2.Text = "Tên sản phẩm";
+            columnHeader2.Width = 270;
             // 
-            // Column4
+            // columnHeader3
             // 
-            Column4.HeaderText = "Lý do";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 125;
+            columnHeader3.Text = "Số lượng";
+            columnHeader3.Width = 130;
             // 
-            // Column5
+            // columnHeader4
             // 
-            Column5.HeaderText = "Ngày điều chỉnh";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 125;
+            columnHeader4.Text = "Lý do";
+            columnHeader4.Width = 260;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Ngày điều chỉnh";
+            columnHeader5.Width = 250;
             // 
             // Adjustment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(viewAdjustment);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(groupBox1);
-            Controls.Add(label2);
-            Controls.Add(btnPrevious);
-            Controls.Add(btnNext);
-            Controls.Add(viewAdjustment);
             Controls.Add(label4);
             Controls.Add(dtpCreateAdjustment);
             Controls.Add(panel1);
@@ -317,7 +272,6 @@
             Load += Adjustment_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewAdjustment).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -328,10 +282,6 @@
 
         private Panel panel1;
         private Label label1;
-        private Label label2;
-        private Button btnPrevious;
-        private Button btnNext;
-        private DataGridView viewAdjustment;
         private Label label4;
         private DateTimePicker dtpCreateAdjustment;
         private GroupBox groupBox1;
@@ -346,10 +296,11 @@
         private Button btnDelete;
         private TextBox txtProductID;
         private Label label7;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
+        private ListView viewAdjustment;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
     }
 }

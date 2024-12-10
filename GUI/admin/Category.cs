@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI.admin
 {
@@ -16,42 +17,42 @@ namespace GUI.admin
     {
         private List<CategoryDTO> categories;
         private CategoryBUS categoryBUS = new CategoryBUS();
-        private int pageNumber = 0;
         private int limit = 10;
         public Category()
         {
             InitializeComponent();
         }
-
         private void Category_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-            LoadCategoryTable();
+            LoadCategoryTable(0);
         }
-
-        private void LoadCategoryTable()
+        private void LoadCategoryTable(int change)
         {
             List<CategoryDTO> list;
-            if (txtSearch.Text == "") list = categoryBUS.GetCategories(pageNumber, limit);
-            else list = categoryBUS.GetCategoriesByCategoryName(pageNumber, limit, txtSearch.Text);
-            if (list.Count == 0)
-            {
-                if (pageNumber > 0) pageNumber--;
-                return;
-            }
-            viewCategory.Rows.Clear();
+            int currentPage = int.Parse(lbPageNumber.Text) + change;
+            if (currentPage < 1) return;
+            if (txtSearch.Text == "") list = categoryBUS.GetCategoriesWithPaging(currentPage - 1, limit);
+            else list = categoryBUS.GetCategoriesByCategoryName(currentPage - 1, limit, txtSearch.Text);
+            if (change != 0 && list.Count == 0) return;
+            viewCategory.Items.Clear();
             categories = list;
-            lbPageNumber.Text = (pageNumber + 1).ToString();
-            foreach (CategoryDTO c in categories) viewCategory.Rows.Add(c.CategoryID, c.CategoryName);
+            lbPageNumber.Text = currentPage.ToString();
+            ListViewItem item;
+            foreach (CategoryDTO c in categories)
+            {
+                item = new ListViewItem(c.CategoryID.ToString());
+                item.SubItems.Add(c.CategoryName);
+                viewCategory.Items.Add(item);
+            }
         }
-
         private void ClearTextBox()
         {
+            lbPageNumber.Text = "1";
             txtSearch.Text = "";
             txtCategoryID.Text = "";
             txtCategoryName.Text = "";
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // check empty
@@ -65,17 +66,21 @@ namespace GUI.admin
             if (message == "")
             {
                 ClearTextBox();
-                LoadCategoryTable();
+                LoadCategoryTable(0);
             }
             else
             {
                 MessageBox.Show(message);
             }
         }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             // check empty
+            if (txtCategoryID.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn danh mục muốn cập nhật");
+                return;
+            }
             if (txtCategoryName.Text == "")
             {
                 MessageBox.Show("Không được để trống tên danh mục");
@@ -86,37 +91,30 @@ namespace GUI.admin
             if (message == "")
             {
                 ClearTextBox();
-                LoadCategoryTable();
+                LoadCategoryTable(0);
             }
             else
             {
                 MessageBox.Show(message);
             }
         }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
-            pageNumber++;
-            LoadCategoryTable();
+            LoadCategoryTable(1);
         }
-
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            if (pageNumber != 0)
+            LoadCategoryTable(-1);
+        }
+        private void viewCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (viewCategory.SelectedItems.Count > 0)
             {
-                pageNumber--;
-                LoadCategoryTable();
+                ListViewItem selectedItem = viewCategory.SelectedItems[0];
+                txtCategoryID.Text = selectedItem.SubItems[0].Text;
+                txtCategoryName.Text = selectedItem.SubItems[1].Text;
             }
         }
-
-        private void viewCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int position = e.RowIndex;
-            if (position < 0) return;
-            txtCategoryID.Text = categories[position].CategoryID.ToString();
-            txtCategoryName.Text = categories[position].CategoryName;
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             // check empty
@@ -132,19 +130,17 @@ namespace GUI.admin
             string message = categoryBUS.DeleteCategory(txtCategoryID.Text);
             if (message == "")
             {
-                pageNumber = 0;
                 ClearTextBox();
-                LoadCategoryTable();
+                LoadCategoryTable(0);
             }
             else
             {
                 MessageBox.Show(message);
             }
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadCategoryTable();
+            LoadCategoryTable(0);
         }
     }
 }

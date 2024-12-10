@@ -1,4 +1,6 @@
+using DTO;
 using GUI.authentication;
+using GUI.vendor;
 
 namespace GUI
 {

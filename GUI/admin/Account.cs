@@ -25,29 +25,37 @@ namespace GUI.admin
             accountDTO = account;
             InitializeComponent();
         }
-
         private void Account_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
             LoadRoleTable();
             LoadAccountTable();
         }
-
         private void LoadRoleTable()
         {
-            viewRole.Rows.Clear();
+            viewRole.Items.Clear();
             List<RoleDTO> roles = roleBUS.GetRoles();
-            foreach (RoleDTO r in roles) viewRole.Rows.Add(r.RoleID, r.RoleName);
+            ListViewItem item;
+            foreach (RoleDTO r in roles)
+            {
+                item = new ListViewItem(r.RoleID.ToString());
+                item.SubItems.Add(r.RoleName);
+                viewRole.Items.Add(item);
+            }
         }
-
         private void LoadAccountTable()
         {
-            viewAccount.Rows.Clear();
+            viewAccount.Items.Clear();
             if (txtSearch.Text == "") accounts = accountBUS.GetAccounts();
             else accounts = accountBUS.SearchAccount(txtSearch.Text);
+            ListViewItem item;
             foreach (AccountDTO a in accounts)
             {
-                viewAccount.Rows.Add(a.Username, a.Fullname, a.Phone, a.RoleDTO.RoleName);
+                item = new ListViewItem(a.Username);
+                item.SubItems.Add(a.Fullname);
+                item.SubItems.Add(a.Phone);
+                item.SubItems.Add(a.RoleDTO.RoleName);
+                viewAccount.Items.Add(item);
             }
         }
 
@@ -59,12 +67,11 @@ namespace GUI.admin
             txtPhone.Text = "";
             txtAccountRoleID.Text = "";
         }
-
         private bool Validate(string username, string fullname, string phone, string roleID)
         {
             if (!Regex.IsMatch(username, @"^[a-zA-Z][a-zA-Z0-9_]{5,}$"))
             {
-                MessageBox.Show("Tên đăng nhập không đúng định dạng");
+                MessageBox.Show("Tên tài khoản không đúng định dạng");
                 return false;
             }
             if (!Regex.IsMatch(fullname, @"^[a-zA-ZÀ-ỹà-ỹ ]+$"))
@@ -107,7 +114,6 @@ namespace GUI.admin
                 MessageBox.Show(message);
             }
         }
-
         private void btnUpdateAccount_Click(object sender, EventArgs e)
         {
             // check empty
@@ -131,17 +137,17 @@ namespace GUI.admin
                 MessageBox.Show(message);
             }
         }
-
-        private void viewAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int position = e.RowIndex;
-            if (position < 0) return;
-            txtUsername.Text = accounts[position].Username;
-            txtFullname.Text = accounts[position].Fullname;
-            txtPhone.Text = accounts[position].Phone;
-            txtAccountRoleID.Text = accounts[position].RoleDTO.RoleID.ToString();
+            if (viewAccount.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = viewAccount.SelectedItems[0];
+                txtUsername.Text = selectedItem.SubItems[0].Text;
+                txtFullname.Text = selectedItem.SubItems[1].Text;
+                txtPhone.Text = selectedItem.SubItems[2].Text;
+                txtAccountRoleID.Text = accounts[selectedItem.Index].RoleDTO.RoleID.ToString();
+            }
         }
-
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             // check empty
@@ -165,7 +171,6 @@ namespace GUI.admin
                 MessageBox.Show(message);
             }
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             LoadAccountTable();

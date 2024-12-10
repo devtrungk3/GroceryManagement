@@ -39,6 +39,11 @@ namespace GUI.authentication
                         iMain.Show();
                         this.Hide();
                         break;
+                    case "VENDOR":
+                        GUI.vendor.Main vMain = new GUI.vendor.Main(accountDTO);
+                        vMain.Show();
+                        this.Hide();
+                        break;
                 }
             }
         }

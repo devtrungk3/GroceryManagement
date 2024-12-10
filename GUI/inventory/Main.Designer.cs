@@ -30,18 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             panel1 = new Panel();
+            openPurchaseBtn = new Button();
             openProfileBtn = new Button();
             openAdjustmentBtn = new Button();
             openImportBtn = new Button();
             label1 = new Label();
             openDashboardBtn = new Button();
-            openPurchaseBtn = new Button();
+            btnLogout = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(180, 197, 237);
+            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(openPurchaseBtn);
             panel1.Controls.Add(openProfileBtn);
             panel1.Controls.Add(openAdjustmentBtn);
@@ -53,6 +55,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(260, 760);
             panel1.TabIndex = 0;
+            // 
+            // openPurchaseBtn
+            // 
+            openPurchaseBtn.BackColor = Color.FromArgb(180, 197, 237);
+            openPurchaseBtn.FlatAppearance.BorderSize = 0;
+            openPurchaseBtn.FlatStyle = FlatStyle.Flat;
+            openPurchaseBtn.Font = new Font("JetBrains Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            openPurchaseBtn.Image = (Image)resources.GetObject("openPurchaseBtn.Image");
+            openPurchaseBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            openPurchaseBtn.Location = new Point(3, 191);
+            openPurchaseBtn.Name = "openPurchaseBtn";
+            openPurchaseBtn.Padding = new Padding(20, 0, 0, 0);
+            openPurchaseBtn.Size = new Size(254, 42);
+            openPurchaseBtn.TabIndex = 10;
+            openPurchaseBtn.Text = "Hóa đơn";
+            openPurchaseBtn.UseVisualStyleBackColor = false;
+            openPurchaseBtn.Click += openPurchaseBtn_Click;
             // 
             // openProfileBtn
             // 
@@ -132,22 +151,15 @@
             openDashboardBtn.UseVisualStyleBackColor = false;
             openDashboardBtn.Click += openDashboardBtn_Click;
             // 
-            // openPurchaseBtn
+            // btnLogout
             // 
-            openPurchaseBtn.BackColor = Color.FromArgb(180, 197, 237);
-            openPurchaseBtn.FlatAppearance.BorderSize = 0;
-            openPurchaseBtn.FlatStyle = FlatStyle.Flat;
-            openPurchaseBtn.Font = new Font("JetBrains Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            openPurchaseBtn.Image = (Image)resources.GetObject("openPurchaseBtn.Image");
-            openPurchaseBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            openPurchaseBtn.Location = new Point(3, 191);
-            openPurchaseBtn.Name = "openPurchaseBtn";
-            openPurchaseBtn.Padding = new Padding(20, 0, 0, 0);
-            openPurchaseBtn.Size = new Size(254, 42);
-            openPurchaseBtn.TabIndex = 10;
-            openPurchaseBtn.Text = "Hóa đơn";
-            openPurchaseBtn.UseVisualStyleBackColor = false;
-            openPurchaseBtn.Click += openPurchaseBtn_Click;
+            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
+            btnLogout.Location = new Point(12, 705);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(36, 43);
+            btnLogout.TabIndex = 14;
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // Main
             // 
@@ -173,5 +185,6 @@
         private Button openAdjustmentBtn;
         private Button openProfileBtn;
         private Button openPurchaseBtn;
+        private Button btnLogout;
     }
 }

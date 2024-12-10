@@ -10,7 +10,7 @@
     <Compile Update="admin\Category.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="admin\Dashboard.cs">
+    <Compile Update="admin\Conversion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="admin\Import.cs">
@@ -59,6 +59,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="inventory\Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="vendor\Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="vendor\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="vendor\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="vendor\Seller.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

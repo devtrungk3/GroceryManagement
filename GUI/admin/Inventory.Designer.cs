@@ -31,16 +31,15 @@
             panel1 = new Panel();
             label1 = new Label();
             label4 = new Label();
-            label2 = new Label();
+            lbPageNumber = new Label();
             btnPrevious = new Button();
             btnNext = new Button();
-            viewInventory = new DataGridView();
             txtSearch = new TextBox();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
+            viewInventory = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewInventory).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -73,46 +72,35 @@
             label4.TabIndex = 18;
             label4.Text = "Tìm kiếm";
             // 
-            // label2
+            // lbPageNumber
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(574, 547);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 30);
-            label2.TabIndex = 17;
-            label2.Text = "1";
+            lbPageNumber.AutoSize = true;
+            lbPageNumber.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbPageNumber.Location = new Point(574, 508);
+            lbPageNumber.Name = "lbPageNumber";
+            lbPageNumber.Size = new Size(27, 30);
+            lbPageNumber.TabIndex = 17;
+            lbPageNumber.Text = "1";
             // 
             // btnPrevious
             // 
-            btnPrevious.Location = new Point(454, 547);
+            btnPrevious.Location = new Point(454, 508);
             btnPrevious.Name = "btnPrevious";
             btnPrevious.Size = new Size(94, 29);
             btnPrevious.TabIndex = 16;
             btnPrevious.Text = "Trước";
             btnPrevious.UseVisualStyleBackColor = true;
+            btnPrevious.Click += btnPrevious_Click;
             // 
             // btnNext
             // 
-            btnNext.Location = new Point(626, 547);
+            btnNext.Location = new Point(626, 508);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(94, 29);
             btnNext.TabIndex = 15;
             btnNext.Text = "Sau";
             btnNext.UseVisualStyleBackColor = true;
-            // 
-            // viewInventory
-            // 
-            viewInventory.AllowUserToAddRows = false;
-            viewInventory.AllowUserToDeleteRows = false;
-            viewInventory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewInventory.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            viewInventory.Location = new Point(87, 200);
-            viewInventory.Name = "viewInventory";
-            viewInventory.ReadOnly = true;
-            viewInventory.RowHeadersWidth = 51;
-            viewInventory.Size = new Size(1001, 320);
-            viewInventory.TabIndex = 14;
+            btnNext.Click += btnNext_Click;
             // 
             // txtSearch
             // 
@@ -122,41 +110,46 @@
             txtSearch.PlaceholderText = "Nhập tên sản phẩm";
             txtSearch.Size = new Size(363, 34);
             txtSearch.TabIndex = 13;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
-            // Column1
+            // viewInventory
             // 
-            Column1.HeaderText = "Mã kho";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
+            viewInventory.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            viewInventory.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewInventory.FullRowSelect = true;
+            viewInventory.GridLines = true;
+            viewInventory.Location = new Point(83, 168);
+            viewInventory.Name = "viewInventory";
+            viewInventory.Size = new Size(1001, 303);
+            viewInventory.TabIndex = 34;
+            viewInventory.UseCompatibleStateImageBehavior = false;
+            viewInventory.View = View.Details;
             // 
-            // Column2
+            // columnHeader1
             // 
-            Column2.HeaderText = "Tên sản phẩm";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
+            columnHeader1.Text = "Mã kho";
+            columnHeader1.Width = 200;
             // 
-            // Column3
+            // columnHeader2
             // 
-            Column3.HeaderText = "Số lượng";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
+            columnHeader2.Text = "Tên sản phẩm";
+            columnHeader2.Width = 500;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Số lượng";
+            columnHeader3.Width = 290;
             // 
             // Inventory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(viewInventory);
             Controls.Add(label4);
-            Controls.Add(label2);
+            Controls.Add(lbPageNumber);
             Controls.Add(btnPrevious);
             Controls.Add(btnNext);
-            Controls.Add(viewInventory);
             Controls.Add(txtSearch);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -165,7 +158,6 @@
             Load += Inventory_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewInventory).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,13 +167,13 @@
         private Panel panel1;
         private Label label1;
         private Label label4;
-        private Label label2;
+        private Label lbPageNumber;
         private Button btnPrevious;
         private Button btnNext;
-        private DataGridView viewInventory;
         private TextBox txtSearch;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
+        private ListView viewInventory;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }

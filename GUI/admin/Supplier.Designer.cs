@@ -37,11 +37,6 @@
             lbPageNumber = new Label();
             btnPrevious = new Button();
             btnNext = new Button();
-            viewSupplier = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
             btnAdd = new Button();
             groupBox1 = new GroupBox();
             txtAddress = new TextBox();
@@ -53,8 +48,12 @@
             label8 = new Label();
             txtSupplierName = new TextBox();
             btnDelete = new Button();
+            viewSupplier = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewSupplier).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -143,52 +142,6 @@
             btnNext.TabIndex = 17;
             btnNext.Text = "Sau";
             btnNext.UseVisualStyleBackColor = true;
-            // 
-            // viewSupplier
-            // 
-            viewSupplier.AllowUserToAddRows = false;
-            viewSupplier.AllowUserToDeleteRows = false;
-            viewSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewSupplier.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            viewSupplier.Location = new Point(90, 363);
-            viewSupplier.Name = "viewSupplier";
-            viewSupplier.ReadOnly = true;
-            viewSupplier.RowHeadersWidth = 51;
-            viewSupplier.Size = new Size(1001, 320);
-            viewSupplier.TabIndex = 16;
-            viewSupplier.CellContentClick += viewSupplier_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã nhà cung cấp";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên nhà cung cấp";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Số điện thoại";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Địa chỉ";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 125;
             // 
             // btnAdd
             // 
@@ -300,11 +253,46 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // viewSupplier
+            // 
+            viewSupplier.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            viewSupplier.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewSupplier.FullRowSelect = true;
+            viewSupplier.GridLines = true;
+            viewSupplier.Location = new Point(90, 363);
+            viewSupplier.Name = "viewSupplier";
+            viewSupplier.Size = new Size(1001, 303);
+            viewSupplier.TabIndex = 32;
+            viewSupplier.UseCompatibleStateImageBehavior = false;
+            viewSupplier.View = View.Details;
+            viewSupplier.SelectedIndexChanged += viewSupplier_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Mã nhà cung cấp";
+            columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Tên nhà cung cấp";
+            columnHeader2.Width = 250;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Số điện thoại";
+            columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Địa chỉ";
+            columnHeader4.Width = 340;
+            // 
             // Supplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(viewSupplier);
             Controls.Add(btnDelete);
             Controls.Add(groupBox1);
             Controls.Add(btnUpdate);
@@ -312,18 +300,16 @@
             Controls.Add(lbPageNumber);
             Controls.Add(btnPrevious);
             Controls.Add(btnNext);
-            Controls.Add(viewSupplier);
             Controls.Add(btnAdd);
             Controls.Add(label4);
             Controls.Add(txtSearch);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Supplier";
-            Text = "Supplier";
+            Text = " ";
             Load += Supplier_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewSupplier).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -341,7 +327,6 @@
         private Label lbPageNumber;
         private Button btnPrevious;
         private Button btnNext;
-        private DataGridView viewSupplier;
         private Button btnAdd;
         private GroupBox groupBox1;
         private Label label7;
@@ -353,9 +338,10 @@
         private Label label5;
         private TextBox txtAddress;
         private Button btnDelete;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
+        private ListView viewSupplier;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
     }
 }

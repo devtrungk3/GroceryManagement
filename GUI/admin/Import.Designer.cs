@@ -30,28 +30,22 @@
         {
             panel1 = new Panel();
             label1 = new Label();
-            viewPurchase = new DataGridView();
-            label2 = new Label();
-            btnPrevious = new Button();
-            btnNext = new Button();
-            viewPurchaseDetail = new DataGridView();
             label3 = new Label();
             label5 = new Label();
             label4 = new Label();
-            monthCalendar1 = new MonthCalendar();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
-            Column10 = new DataGridViewTextBoxColumn();
+            viewPurchase = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            dtpPurchaseDate = new DateTimePicker();
+            viewPurchaseDetail = new ListView();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
+            columnHeader8 = new ColumnHeader();
+            columnHeader9 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewPurchase).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)viewPurchaseDetail).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -74,65 +68,11 @@
             label1.TabIndex = 0;
             label1.Text = "Nhập kho";
             // 
-            // viewPurchase
-            // 
-            viewPurchase.AllowUserToAddRows = false;
-            viewPurchase.AllowUserToDeleteRows = false;
-            viewPurchase.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewPurchase.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            viewPurchase.Location = new Point(475, 124);
-            viewPurchase.Name = "viewPurchase";
-            viewPurchase.ReadOnly = true;
-            viewPurchase.RowHeadersWidth = 51;
-            viewPurchase.Size = new Size(646, 224);
-            viewPurchase.TabIndex = 14;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(790, 367);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 30);
-            label2.TabIndex = 17;
-            label2.Text = "1";
-            // 
-            // btnPrevious
-            // 
-            btnPrevious.Location = new Point(670, 367);
-            btnPrevious.Name = "btnPrevious";
-            btnPrevious.Size = new Size(94, 29);
-            btnPrevious.TabIndex = 16;
-            btnPrevious.Text = "Trước";
-            btnPrevious.UseVisualStyleBackColor = true;
-            // 
-            // btnNext
-            // 
-            btnNext.Location = new Point(842, 367);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(94, 29);
-            btnNext.TabIndex = 15;
-            btnNext.Text = "Sau";
-            btnNext.UseVisualStyleBackColor = true;
-            // 
-            // viewPurchaseDetail
-            // 
-            viewPurchaseDetail.AllowUserToAddRows = false;
-            viewPurchaseDetail.AllowUserToDeleteRows = false;
-            viewPurchaseDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewPurchaseDetail.Columns.AddRange(new DataGridViewColumn[] { Column5, Column6, Column7, Column8, Column9, Column10 });
-            viewPurchaseDetail.Location = new Point(40, 460);
-            viewPurchaseDetail.Name = "viewPurchaseDetail";
-            viewPurchaseDetail.ReadOnly = true;
-            viewPurchaseDetail.RowHeadersWidth = 51;
-            viewPurchaseDetail.Size = new Size(1081, 256);
-            viewPurchaseDetail.TabIndex = 18;
-            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("JetBrains Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(475, 95);
+            label3.Location = new Point(316, 87);
             label3.Name = "label3";
             label3.Size = new Size(324, 26);
             label3.TabIndex = 19;
@@ -142,7 +82,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("JetBrains Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 431);
+            label5.Location = new Point(40, 383);
             label5.Name = "label5";
             label5.Size = new Size(312, 26);
             label5.TabIndex = 20;
@@ -154,109 +94,103 @@
             label4.Font = new Font("JetBrains Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(40, 87);
             label4.Name = "label4";
-            label4.Size = new Size(168, 26);
+            label4.Size = new Size(180, 26);
             label4.TabIndex = 13;
-            label4.Text = "Ngày nhập kho";
+            label4.Text = "Tháng nhập kho";
             // 
-            // monthCalendar1
+            // viewPurchase
             // 
-            monthCalendar1.Location = new Point(40, 124);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 21;
+            viewPurchase.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            viewPurchase.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewPurchase.FullRowSelect = true;
+            viewPurchase.GridLines = true;
+            viewPurchase.Location = new Point(316, 124);
+            viewPurchase.Name = "viewPurchase";
+            viewPurchase.Size = new Size(805, 224);
+            viewPurchase.TabIndex = 34;
+            viewPurchase.UseCompatibleStateImageBehavior = false;
+            viewPurchase.View = View.Details;
+            viewPurchase.SelectedIndexChanged += viewPurchase_SelectedIndexChanged;
             // 
-            // Column1
+            // columnHeader1
             // 
-            Column1.HeaderText = "Mã hóa đơn";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
+            columnHeader1.Text = "Mã";
+            columnHeader1.Width = 100;
             // 
-            // Column2
+            // columnHeader2
             // 
-            Column2.HeaderText = "Tên nhà cung cấp";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
+            columnHeader2.Text = "Tên nhà cung cấp";
+            columnHeader2.Width = 250;
             // 
-            // Column3
+            // columnHeader3
             // 
-            Column3.HeaderText = "Tổng tiền";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
+            columnHeader3.Text = "Tổng tiền";
+            columnHeader3.Width = 190;
             // 
-            // Column4
+            // columnHeader4
             // 
-            Column4.HeaderText = "Ngày nhập kho";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 125;
+            columnHeader4.Text = "Ngày nhập kho";
+            columnHeader4.Width = 250;
             // 
-            // Column5
+            // dtpPurchaseDate
             // 
-            Column5.HeaderText = "Mã chi tiết hóa đơn";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 125;
+            dtpPurchaseDate.CustomFormat = "MM/yyyy";
+            dtpPurchaseDate.Font = new Font("JetBrains Mono", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpPurchaseDate.Format = DateTimePickerFormat.Custom;
+            dtpPurchaseDate.Location = new Point(40, 124);
+            dtpPurchaseDate.Name = "dtpPurchaseDate";
+            dtpPurchaseDate.Size = new Size(250, 30);
+            dtpPurchaseDate.TabIndex = 35;
+            dtpPurchaseDate.ValueChanged += dtpPurchaseDate_ValueChanged;
             // 
-            // Column6
+            // viewPurchaseDetail
             // 
-            Column6.HeaderText = "Mã hóa đơn";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 125;
+            viewPurchaseDetail.Columns.AddRange(new ColumnHeader[] { columnHeader5, columnHeader6, columnHeader7, columnHeader8, columnHeader9 });
+            viewPurchaseDetail.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewPurchaseDetail.FullRowSelect = true;
+            viewPurchaseDetail.GridLines = true;
+            viewPurchaseDetail.Location = new Point(40, 423);
+            viewPurchaseDetail.Name = "viewPurchaseDetail";
+            viewPurchaseDetail.Size = new Size(1081, 305);
+            viewPurchaseDetail.TabIndex = 36;
+            viewPurchaseDetail.UseCompatibleStateImageBehavior = false;
+            viewPurchaseDetail.View = View.Details;
             // 
-            // Column7
+            // columnHeader5
             // 
-            Column7.HeaderText = "Tên sản phẩm";
-            Column7.MinimumWidth = 6;
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
-            Column7.Width = 125;
+            columnHeader5.Text = "Mã hóa đơn";
+            columnHeader5.Width = 130;
             // 
-            // Column8
+            // columnHeader6
             // 
-            Column8.HeaderText = "Số lượng";
-            Column8.MinimumWidth = 6;
-            Column8.Name = "Column8";
-            Column8.ReadOnly = true;
-            Column8.Width = 125;
+            columnHeader6.Text = "Tên sản phẩm";
+            columnHeader6.Width = 350;
             // 
-            // Column9
+            // columnHeader7
             // 
-            Column9.HeaderText = "Đơn vị";
-            Column9.MinimumWidth = 6;
-            Column9.Name = "Column9";
-            Column9.ReadOnly = true;
-            Column9.Width = 125;
+            columnHeader7.Text = "Số lượng";
+            columnHeader7.Width = 150;
             // 
-            // Column10
+            // columnHeader8
             // 
-            Column10.HeaderText = "Đơn giá";
-            Column10.MinimumWidth = 6;
-            Column10.Name = "Column10";
-            Column10.ReadOnly = true;
-            Column10.Width = 125;
+            columnHeader8.Text = "Đơn vị";
+            columnHeader8.Width = 150;
+            // 
+            // columnHeader9
+            // 
+            columnHeader9.Text = "Đơn giá";
+            columnHeader9.Width = 250;
             // 
             // Import
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
-            Controls.Add(monthCalendar1);
+            Controls.Add(viewPurchaseDetail);
+            Controls.Add(dtpPurchaseDate);
+            Controls.Add(viewPurchase);
             Controls.Add(label5);
             Controls.Add(label3);
-            Controls.Add(viewPurchaseDetail);
-            Controls.Add(label2);
-            Controls.Add(btnPrevious);
-            Controls.Add(btnNext);
-            Controls.Add(viewPurchase);
             Controls.Add(label4);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -265,8 +199,6 @@
             Load += Import_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewPurchase).EndInit();
-            ((System.ComponentModel.ISupportInitialize)viewPurchaseDetail).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -275,11 +207,6 @@
 
         private Panel panel1;
         private Label label1;
-        private DataGridView viewPurchase;
-        private Label label2;
-        private Button btnPrevious;
-        private Button btnNext;
-        private DataGridView viewPurchaseDetail;
         private Label label3;
         private Label label5;
         private Label label4;
@@ -288,11 +215,17 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
+        private ListView viewPurchase;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private DateTimePicker dtpPurchaseDate;
+        private ListView viewPurchaseDetail;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private ColumnHeader columnHeader9;
     }
 }

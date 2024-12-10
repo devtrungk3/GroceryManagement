@@ -19,7 +19,7 @@ namespace DAL
                 string query = $"select unit_id, unit_name from UNIT order by unit_id";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
-                int unitID;S
+                int unitID;
                 string unitName;
                 while (reader.Read())
                 {

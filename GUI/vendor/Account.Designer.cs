@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            txtAccountName = new TextBox();
+            txtUsername = new TextBox();
             label4 = new Label();
-            txtUserName = new TextBox();
+            txtFullname = new TextBox();
             label2 = new Label();
             txtPhone = new TextBox();
             label3 = new Label();
-            btnUpdate = new Button();
-            txtComfirmPass = new TextBox();
+            txtReNewPass = new TextBox();
             label5 = new Label();
-            txtNewPass = new TextBox();
+            txtNewPassword = new TextBox();
             label6 = new Label();
-            txtCurrentPass = new TextBox();
+            txtPassword = new TextBox();
             label7 = new Label();
             btnChangePass = new Button();
             SuspendLayout();
@@ -56,13 +55,14 @@
             label1.TabIndex = 1;
             label1.Text = "Tài khoản";
             // 
-            // txtAccountName
+            // txtUsername
             // 
-            txtAccountName.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtAccountName.Location = new Point(135, 218);
-            txtAccountName.Name = "txtAccountName";
-            txtAccountName.Size = new Size(387, 38);
-            txtAccountName.TabIndex = 9;
+            txtUsername.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(135, 218);
+            txtUsername.Name = "txtUsername";
+            txtUsername.ReadOnly = true;
+            txtUsername.Size = new Size(387, 38);
+            txtUsername.TabIndex = 9;
             // 
             // label4
             // 
@@ -74,13 +74,14 @@
             label4.TabIndex = 10;
             label4.Text = "Tên tài khoản";
             // 
-            // txtUserName
+            // txtFullname
             // 
-            txtUserName.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtUserName.Location = new Point(135, 335);
-            txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(387, 38);
-            txtUserName.TabIndex = 11;
+            txtFullname.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtFullname.Location = new Point(135, 335);
+            txtFullname.Name = "txtFullname";
+            txtFullname.ReadOnly = true;
+            txtFullname.Size = new Size(387, 38);
+            txtFullname.TabIndex = 11;
             // 
             // label2
             // 
@@ -97,6 +98,7 @@
             txtPhone.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtPhone.Location = new Point(135, 461);
             txtPhone.Name = "txtPhone";
+            txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(387, 38);
             txtPhone.TabIndex = 13;
             // 
@@ -110,29 +112,14 @@
             label3.TabIndex = 14;
             label3.Text = "Số điện thoại";
             // 
-            // btnUpdate
+            // txtReNewPass
             // 
-            btnUpdate.BackColor = Color.FromArgb(0, 118, 225);
-            btnUpdate.Cursor = Cursors.Hand;
-            btnUpdate.FlatAppearance.BorderSize = 0;
-            btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(237, 531);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(169, 55);
-            btnUpdate.TabIndex = 15;
-            btnUpdate.Text = "Cập nhật";
-            btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // txtComfirmPass
-            // 
-            txtComfirmPass.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtComfirmPass.Location = new Point(660, 461);
-            txtComfirmPass.Name = "txtComfirmPass";
-            txtComfirmPass.PasswordChar = '*';
-            txtComfirmPass.Size = new Size(434, 38);
-            txtComfirmPass.TabIndex = 20;
+            txtReNewPass.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtReNewPass.Location = new Point(660, 461);
+            txtReNewPass.Name = "txtReNewPass";
+            txtReNewPass.PasswordChar = '*';
+            txtReNewPass.Size = new Size(434, 38);
+            txtReNewPass.TabIndex = 20;
             // 
             // label5
             // 
@@ -144,14 +131,14 @@
             label5.TabIndex = 21;
             label5.Text = "Xác nhận mật khẩu";
             // 
-            // txtNewPass
+            // txtNewPassword
             // 
-            txtNewPass.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtNewPass.Location = new Point(660, 335);
-            txtNewPass.Name = "txtNewPass";
-            txtNewPass.PasswordChar = '*';
-            txtNewPass.Size = new Size(434, 38);
-            txtNewPass.TabIndex = 18;
+            txtNewPassword.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtNewPassword.Location = new Point(660, 335);
+            txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.PasswordChar = '*';
+            txtNewPassword.Size = new Size(434, 38);
+            txtNewPassword.TabIndex = 18;
             // 
             // label6
             // 
@@ -163,14 +150,14 @@
             label6.TabIndex = 19;
             label6.Text = "Mật khẩu mới";
             // 
-            // txtCurrentPass
+            // txtPassword
             // 
-            txtCurrentPass.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtCurrentPass.Location = new Point(660, 218);
-            txtCurrentPass.Name = "txtCurrentPass";
-            txtCurrentPass.PasswordChar = '*';
-            txtCurrentPass.Size = new Size(434, 38);
-            txtCurrentPass.TabIndex = 16;
+            txtPassword.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtPassword.Location = new Point(660, 218);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(434, 38);
+            txtPassword.TabIndex = 16;
             // 
             // label7
             // 
@@ -196,6 +183,7 @@
             btnChangePass.TabIndex = 22;
             btnChangePass.Text = "Đổi mật khẩu";
             btnChangePass.UseVisualStyleBackColor = false;
+            btnChangePass.Click += btnChangePass_Click;
             // 
             // Account
             // 
@@ -204,23 +192,23 @@
             BackColor = Color.White;
             ClientSize = new Size(1209, 785);
             Controls.Add(btnChangePass);
-            Controls.Add(txtComfirmPass);
+            Controls.Add(txtReNewPass);
             Controls.Add(label5);
-            Controls.Add(txtNewPass);
+            Controls.Add(txtNewPassword);
             Controls.Add(label6);
-            Controls.Add(txtCurrentPass);
+            Controls.Add(txtPassword);
             Controls.Add(label7);
-            Controls.Add(btnUpdate);
             Controls.Add(txtPhone);
             Controls.Add(label3);
-            Controls.Add(txtUserName);
+            Controls.Add(txtFullname);
             Controls.Add(label2);
-            Controls.Add(txtAccountName);
+            Controls.Add(txtUsername);
             Controls.Add(label4);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Account";
             Text = "Account";
+            Load += Account_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -228,18 +216,17 @@
         #endregion
 
         private Label label1;
-        private TextBox txtAccountName;
+        private TextBox txtUsername;
         private Label label4;
-        private TextBox txtUserName;
+        private TextBox txtFullname;
         private Label label2;
         private TextBox txtPhone;
         private Label label3;
-        private Button btnUpdate;
-        private TextBox txtComfirmPass;
+        private TextBox txtReNewPass;
         private Label label5;
-        private TextBox txtNewPass;
+        private TextBox txtNewPassword;
         private Label label6;
-        private TextBox txtCurrentPass;
+        private TextBox txtPassword;
         private Label label7;
         private Button btnChangePass;
     }

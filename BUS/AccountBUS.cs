@@ -17,6 +17,15 @@ namespace BUS
         {
             return accountDAL.FindAllAccounts();
         }
+        public AccountDTO? GetAccountByUsername(string username)
+        {
+            return accountDAL.FindAccountByUsername(username);
+        }
+        public string ChangePassword(string username, string password)
+        {
+            if (accountDAL.UpdatePassword(username, password)) return "";
+            return "Đổi mật khẩu thất bại";
+        }
         public string InsertAccount(AccountDTO account)
         {
             if (accountDAL.IsUsernameExist(account.Username)) return "Tên tài khoản đã tồn tại";

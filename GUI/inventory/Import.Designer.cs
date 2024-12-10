@@ -34,26 +34,26 @@
             cbSuppiler = new ComboBox();
             groupBox2 = new GroupBox();
             cbUnit = new ComboBox();
-            txtPhone = new TextBox();
+            txtUnitPrice = new TextBox();
             label3 = new Label();
             label7 = new Label();
             txtProductID = new TextBox();
             label8 = new Label();
             label9 = new Label();
-            txtQuatity = new TextBox();
-            viewProduct = new DataGridView();
+            txtQuantity = new TextBox();
             btnAdd = new Button();
             btnDelete = new Button();
             label2 = new Label();
-            txtTotalAmount = new TextBox();
             btnComplete = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            viewImport = new ListView();
+            columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
+            columnHeader8 = new ColumnHeader();
+            columnHeader9 = new ColumnHeader();
+            lbTotalAmount = new Label();
+            btnUpdate = new Button();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewProduct).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -97,19 +97,18 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(cbUnit);
-            groupBox2.Controls.Add(txtPhone);
+            groupBox2.Controls.Add(txtUnitPrice);
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(txtProductID);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(txtQuatity);
+            groupBox2.Controls.Add(txtQuantity);
             groupBox2.Location = new Point(75, 144);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(803, 143);
             groupBox2.TabIndex = 23;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Thông tin tài khoản";
             // 
             // cbUnit
             // 
@@ -119,13 +118,13 @@
             cbUnit.Size = new Size(227, 28);
             cbUnit.TabIndex = 24;
             // 
-            // txtPhone
+            // txtUnitPrice
             // 
-            txtPhone.Font = new Font("JetBrains Mono", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPhone.Location = new Point(540, 86);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(227, 30);
-            txtPhone.TabIndex = 22;
+            txtUnitPrice.Font = new Font("JetBrains Mono", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUnitPrice.Location = new Point(540, 86);
+            txtUnitPrice.Name = "txtUnitPrice";
+            txtUnitPrice.Size = new Size(227, 30);
+            txtUnitPrice.TabIndex = 22;
             // 
             // label3
             // 
@@ -175,117 +174,121 @@
             label9.TabIndex = 14;
             label9.Text = "Số lượng";
             // 
-            // txtQuatity
+            // txtQuantity
             // 
-            txtQuatity.Font = new Font("JetBrains Mono", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtQuatity.Location = new Point(168, 86);
-            txtQuatity.Name = "txtQuatity";
-            txtQuatity.Size = new Size(227, 30);
-            txtQuatity.TabIndex = 14;
-            // 
-            // viewProduct
-            // 
-            viewProduct.AllowUserToAddRows = false;
-            viewProduct.AllowUserToDeleteRows = false;
-            viewProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewProduct.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            viewProduct.Location = new Point(75, 322);
-            viewProduct.Name = "viewProduct";
-            viewProduct.ReadOnly = true;
-            viewProduct.RowHeadersWidth = 51;
-            viewProduct.Size = new Size(1001, 245);
-            viewProduct.TabIndex = 24;
+            txtQuantity.Font = new Font("JetBrains Mono", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtQuantity.Location = new Point(168, 86);
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new Size(227, 30);
+            txtQuantity.TabIndex = 14;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(906, 186);
+            btnAdd.Location = new Point(906, 169);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 25;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(906, 231);
+            btnDelete.Location = new Point(906, 258);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 26;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("JetBrains Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(75, 597);
+            label2.Location = new Point(75, 677);
             label2.Name = "label2";
             label2.Size = new Size(120, 26);
             label2.TabIndex = 27;
             label2.Text = "Tổng tiền";
             // 
-            // txtTotalAmount
-            // 
-            txtTotalAmount.Enabled = false;
-            txtTotalAmount.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTotalAmount.Location = new Point(201, 590);
-            txtTotalAmount.Name = "txtTotalAmount";
-            txtTotalAmount.Size = new Size(227, 38);
-            txtTotalAmount.TabIndex = 25;
-            // 
             // btnComplete
             // 
             btnComplete.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnComplete.Location = new Point(938, 584);
+            btnComplete.Location = new Point(938, 668);
             btnComplete.Name = "btnComplete";
             btnComplete.Size = new Size(138, 39);
             btnComplete.TabIndex = 28;
             btnComplete.Text = "Xác nhận";
             btnComplete.UseVisualStyleBackColor = true;
+            btnComplete.Click += btnComplete_Click;
             // 
-            // Column1
+            // viewImport
             // 
-            Column1.HeaderText = "Mã sản phẩm";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
+            viewImport.Columns.AddRange(new ColumnHeader[] { columnHeader6, columnHeader7, columnHeader8, columnHeader9 });
+            viewImport.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewImport.FullRowSelect = true;
+            viewImport.GridLines = true;
+            viewImport.Location = new Point(75, 314);
+            viewImport.Name = "viewImport";
+            viewImport.Size = new Size(1001, 322);
+            viewImport.TabIndex = 37;
+            viewImport.UseCompatibleStateImageBehavior = false;
+            viewImport.View = View.Details;
+            viewImport.SelectedIndexChanged += viewImport_SelectedIndexChanged;
             // 
-            // Column2
+            // columnHeader6
             // 
-            Column2.HeaderText = "Số lượng";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
+            columnHeader6.Text = "Tên sản phẩm";
+            columnHeader6.Width = 440;
             // 
-            // Column3
+            // columnHeader7
             // 
-            Column3.HeaderText = "Đơn vị";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 125;
+            columnHeader7.Text = "Số lượng";
+            columnHeader7.Width = 150;
             // 
-            // Column4
+            // columnHeader8
             // 
-            Column4.HeaderText = "Đơn giá";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 125;
+            columnHeader8.Text = "Đơn vị";
+            columnHeader8.Width = 150;
+            // 
+            // columnHeader9
+            // 
+            columnHeader9.Text = "Đơn giá";
+            columnHeader9.Width = 250;
+            // 
+            // lbTotalAmount
+            // 
+            lbTotalAmount.AutoSize = true;
+            lbTotalAmount.Font = new Font("JetBrains Mono", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbTotalAmount.Location = new Point(216, 670);
+            lbTotalAmount.Name = "lbTotalAmount";
+            lbTotalAmount.Size = new Size(34, 37);
+            lbTotalAmount.TabIndex = 38;
+            lbTotalAmount.Text = "0";
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(906, 213);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(94, 29);
+            btnUpdate.TabIndex = 39;
+            btnUpdate.Text = "Sửa";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // Import
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(btnUpdate);
+            Controls.Add(lbTotalAmount);
+            Controls.Add(viewImport);
             Controls.Add(btnComplete);
-            Controls.Add(txtTotalAmount);
             Controls.Add(label2);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
-            Controls.Add(viewProduct);
             Controls.Add(groupBox2);
             Controls.Add(cbSuppiler);
             Controls.Add(label4);
@@ -298,7 +301,6 @@
             panel1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewProduct).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -310,23 +312,24 @@
         private Label label4;
         private ComboBox cbSuppiler;
         private GroupBox groupBox2;
-        private TextBox txtPhone;
+        private TextBox txtUnitPrice;
         private Label label3;
         private Label label7;
         private TextBox txtProductID;
         private Label label8;
         private Label label9;
-        private TextBox txtQuatity;
+        private TextBox txtQuantity;
         private ComboBox cbUnit;
-        private DataGridView viewProduct;
         private Button btnAdd;
         private Button btnDelete;
         private Label label2;
-        private TextBox txtTotalAmount;
         private Button btnComplete;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
+        private ListView viewImport;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private ColumnHeader columnHeader9;
+        private Label lbTotalAmount;
+        private Button btnUpdate;
     }
 }

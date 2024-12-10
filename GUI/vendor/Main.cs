@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DTO;
+using GUI.authentication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,17 +17,18 @@ namespace GUI.vendor
         private Seller? seller;
         private Order? order;
         private Account? account;
-
-        public Main()
+        private AccountDTO info;
+        public Main(AccountDTO info)
         {
             InitializeComponent();
+            this.info = info;
         }
 
         private void openSellerBtn_Click(object sender, EventArgs e)
         {
             if (seller == null)
             {
-                seller = new Seller();
+                seller = new Seller(info);
                 seller.FormClosed += Seller_FormClosed;
                 seller.MdiParent = this;
                 seller.Dock = DockStyle.Fill;
@@ -44,7 +47,7 @@ namespace GUI.vendor
 
         private void Main_Load(object sender, EventArgs e)
         {
-            seller = new Seller();
+            seller = new Seller(info);
             seller.FormClosed += Seller_FormClosed;
             seller.MdiParent = this;
             seller.Dock = DockStyle.Fill;
@@ -55,7 +58,7 @@ namespace GUI.vendor
         {
             if (order == null)
             {
-                order = new Order();
+                order = new Order(info);
                 order.FormClosed += Order_FormClosed;
                 order.MdiParent = this;
                 order.Dock = DockStyle.Fill;
@@ -76,7 +79,7 @@ namespace GUI.vendor
         {
             if (account == null)
             {
-                account = new Account();
+                account = new Account(info.Username);
                 account.FormClosed += Account_FormClosed;
                 account.MdiParent = this;
                 account.Dock = DockStyle.Fill;
@@ -91,6 +94,13 @@ namespace GUI.vendor
         private void Account_FormClosed(object? sender, FormClosedEventArgs e)
         {
             account = null;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

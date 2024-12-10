@@ -32,34 +32,34 @@
             label1 = new Label();
             label2 = new Label();
             txtProductID = new TextBox();
-            pictureBox1 = new PictureBox();
+            btnCheckProduct = new PictureBox();
             groupBox1 = new GroupBox();
             btnAddOrder = new Button();
-            txtTotalOrder = new TextBox();
+            txtTotalAmount = new TextBox();
             label3 = new Label();
             groupBox2 = new GroupBox();
-            comboBox1 = new ComboBox();
-            txtAmount = new NumericUpDown();
+            txtTotalPrice = new TextBox();
+            label7 = new Label();
+            cbUnit = new ComboBox();
+            txtQuantity = new NumericUpDown();
             btnDeleteProduct = new Button();
             btnAddProduct = new Button();
             label8 = new Label();
-            txtTotalPrice = new TextBox();
-            label7 = new Label();
             label6 = new Label();
-            textBox4 = new TextBox();
+            txtPrice = new TextBox();
             label5 = new Label();
             txtProductName = new TextBox();
             label4 = new Label();
-            viewProduct = new ListView();
+            viewOrderDetail = new ListView();
             columnHeader3 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader1 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             columnHeader5 = new ColumnHeader();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCheckProduct).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtQuantity).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -91,21 +91,22 @@
             txtProductID.Size = new Size(290, 38);
             txtProductID.TabIndex = 2;
             // 
-            // pictureBox1
+            // btnCheckProduct
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(368, 172);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 38);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            btnCheckProduct.Cursor = Cursors.Hand;
+            btnCheckProduct.Image = (Image)resources.GetObject("btnCheckProduct.Image");
+            btnCheckProduct.Location = new Point(368, 172);
+            btnCheckProduct.Name = "btnCheckProduct";
+            btnCheckProduct.Size = new Size(38, 38);
+            btnCheckProduct.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnCheckProduct.TabIndex = 3;
+            btnCheckProduct.TabStop = false;
+            btnCheckProduct.Click += btnCheckProduct_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(btnAddOrder);
-            groupBox1.Controls.Add(txtTotalOrder);
+            groupBox1.Controls.Add(txtTotalAmount);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("JetBrains Mono", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(58, 245);
@@ -129,15 +130,17 @@
             btnAddOrder.TabIndex = 7;
             btnAddOrder.Text = "Xuất";
             btnAddOrder.UseVisualStyleBackColor = false;
+            btnAddOrder.Click += btnAddOrder_Click;
             // 
-            // txtTotalOrder
+            // txtTotalAmount
             // 
-            txtTotalOrder.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtTotalOrder.Location = new Point(32, 99);
-            txtTotalOrder.Name = "txtTotalOrder";
-            txtTotalOrder.ReadOnly = true;
-            txtTotalOrder.Size = new Size(325, 38);
-            txtTotalOrder.TabIndex = 6;
+            txtTotalAmount.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTotalAmount.Location = new Point(32, 99);
+            txtTotalAmount.Name = "txtTotalAmount";
+            txtTotalAmount.ReadOnly = true;
+            txtTotalAmount.Size = new Size(325, 38);
+            txtTotalAmount.TabIndex = 6;
+            txtTotalAmount.Text = "0";
             // 
             // label3
             // 
@@ -151,15 +154,15 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(txtAmount);
+            groupBox2.Controls.Add(txtTotalPrice);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(cbUnit);
+            groupBox2.Controls.Add(txtQuantity);
             groupBox2.Controls.Add(btnDeleteProduct);
             groupBox2.Controls.Add(btnAddProduct);
             groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(txtTotalPrice);
-            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(txtPrice);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txtProductName);
             groupBox2.Controls.Add(label4);
@@ -171,23 +174,47 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin sản phẩm";
             // 
-            // comboBox1
+            // txtTotalPrice
             // 
-            comboBox1.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Lít", "Cái", "Kg" });
-            comboBox1.Location = new Point(49, 300);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(248, 38);
-            comboBox1.TabIndex = 19;
+            txtTotalPrice.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTotalPrice.Location = new Point(49, 294);
+            txtTotalPrice.Name = "txtTotalPrice";
+            txtTotalPrice.ReadOnly = true;
+            txtTotalPrice.Size = new Size(266, 38);
+            txtTotalPrice.TabIndex = 20;
+            txtTotalPrice.Text = "0";
             // 
-            // txtAmount
+            // label7
             // 
-            txtAmount.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtAmount.Location = new Point(49, 200);
-            txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(248, 38);
-            txtAmount.TabIndex = 18;
+            label7.AutoSize = true;
+            label7.Font = new Font("JetBrains Mono", 16.2F, FontStyle.Bold | FontStyle.Italic);
+            label7.Location = new Point(49, 254);
+            label7.Name = "label7";
+            label7.Size = new Size(187, 37);
+            label7.TabIndex = 21;
+            label7.Text = "Thành tiền";
+            // 
+            // cbUnit
+            // 
+            cbUnit.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            cbUnit.FormattingEnabled = true;
+            cbUnit.Items.AddRange(new object[] { "Lít", "Cái", "Kg" });
+            cbUnit.Location = new Point(418, 200);
+            cbUnit.Name = "cbUnit";
+            cbUnit.Size = new Size(227, 38);
+            cbUnit.TabIndex = 19;
+            cbUnit.SelectedIndexChanged += cbUnit_SelectedIndexChanged;
+            // 
+            // txtQuantity
+            // 
+            txtQuantity.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtQuantity.Location = new Point(49, 200);
+            txtQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new Size(325, 38);
+            txtQuantity.TabIndex = 18;
+            txtQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            txtQuantity.ValueChanged += txtQuantity_ValueChanged;
             // 
             // btnDeleteProduct
             // 
@@ -197,12 +224,13 @@
             btnDeleteProduct.FlatStyle = FlatStyle.Flat;
             btnDeleteProduct.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnDeleteProduct.ForeColor = Color.White;
-            btnDeleteProduct.Location = new Point(534, 283);
+            btnDeleteProduct.Location = new Point(534, 276);
             btnDeleteProduct.Name = "btnDeleteProduct";
             btnDeleteProduct.Size = new Size(111, 55);
             btnDeleteProduct.TabIndex = 17;
             btnDeleteProduct.Text = "Xóa";
             btnDeleteProduct.UseVisualStyleBackColor = false;
+            btnDeleteProduct.Click += btnDeleteProduct_Click;
             // 
             // btnAddProduct
             // 
@@ -212,40 +240,23 @@
             btnAddProduct.FlatStyle = FlatStyle.Flat;
             btnAddProduct.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnAddProduct.ForeColor = Color.White;
-            btnAddProduct.Location = new Point(397, 283);
+            btnAddProduct.Location = new Point(397, 276);
             btnAddProduct.Name = "btnAddProduct";
             btnAddProduct.Size = new Size(111, 55);
             btnAddProduct.TabIndex = 8;
             btnAddProduct.Text = "Thêm";
             btnAddProduct.UseVisualStyleBackColor = false;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("JetBrains Mono", 16.2F, FontStyle.Bold | FontStyle.Italic);
-            label8.Location = new Point(49, 260);
+            label8.Location = new Point(418, 160);
             label8.Name = "label8";
             label8.Size = new Size(119, 37);
             label8.TabIndex = 16;
             label8.Text = "Đơn vị";
-            // 
-            // txtTotalPrice
-            // 
-            txtTotalPrice.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtTotalPrice.Location = new Point(397, 199);
-            txtTotalPrice.Name = "txtTotalPrice";
-            txtTotalPrice.Size = new Size(248, 38);
-            txtTotalPrice.TabIndex = 13;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("JetBrains Mono", 16.2F, FontStyle.Bold | FontStyle.Italic);
-            label7.Location = new Point(397, 160);
-            label7.Name = "label7";
-            label7.Size = new Size(187, 37);
-            label7.TabIndex = 14;
-            label7.Text = "Thành tiền";
             // 
             // label6
             // 
@@ -257,19 +268,21 @@
             label6.TabIndex = 12;
             label6.Text = "Số lượng";
             // 
-            // textBox4
+            // txtPrice
             // 
-            textBox4.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(397, 104);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(248, 38);
-            textBox4.TabIndex = 9;
+            txtPrice.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtPrice.Location = new Point(418, 104);
+            txtPrice.Name = "txtPrice";
+            txtPrice.ReadOnly = true;
+            txtPrice.Size = new Size(227, 38);
+            txtPrice.TabIndex = 9;
+            txtPrice.Text = "0";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("JetBrains Mono", 16.2F, FontStyle.Bold | FontStyle.Italic);
-            label5.Location = new Point(397, 64);
+            label5.Location = new Point(418, 64);
             label5.Name = "label5";
             label5.Size = new Size(136, 37);
             label5.TabIndex = 10;
@@ -280,7 +293,8 @@
             txtProductName.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Italic, GraphicsUnit.Point, 0);
             txtProductName.Location = new Point(49, 104);
             txtProductName.Name = "txtProductName";
-            txtProductName.Size = new Size(248, 38);
+            txtProductName.ReadOnly = true;
+            txtProductName.Size = new Size(325, 38);
             txtProductName.TabIndex = 6;
             // 
             // label4
@@ -293,18 +307,20 @@
             label4.TabIndex = 8;
             label4.Text = "Tên sản phẩm";
             // 
-            // viewProduct
+            // viewOrderDetail
             // 
-            viewProduct.Alignment = ListViewAlignment.Default;
-            viewProduct.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader2, columnHeader1, columnHeader4, columnHeader5 });
-            viewProduct.Font = new Font("JetBrains Mono", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            viewProduct.GridLines = true;
-            viewProduct.Location = new Point(58, 511);
-            viewProduct.Name = "viewProduct";
-            viewProduct.Size = new Size(1118, 262);
-            viewProduct.TabIndex = 6;
-            viewProduct.UseCompatibleStateImageBehavior = false;
-            viewProduct.View = View.Details;
+            viewOrderDetail.Alignment = ListViewAlignment.Default;
+            viewOrderDetail.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader2, columnHeader1, columnHeader4, columnHeader5 });
+            viewOrderDetail.Font = new Font("JetBrains Mono", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            viewOrderDetail.FullRowSelect = true;
+            viewOrderDetail.GridLines = true;
+            viewOrderDetail.Location = new Point(58, 511);
+            viewOrderDetail.Name = "viewOrderDetail";
+            viewOrderDetail.Size = new Size(1118, 262);
+            viewOrderDetail.TabIndex = 6;
+            viewOrderDetail.UseCompatibleStateImageBehavior = false;
+            viewOrderDetail.View = View.Details;
+            viewOrderDetail.SelectedIndexChanged += viewOrderDetail_SelectedIndexChanged;
             // 
             // columnHeader3
             // 
@@ -337,22 +353,22 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1209, 785);
-            Controls.Add(viewProduct);
+            Controls.Add(viewOrderDetail);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(pictureBox1);
+            Controls.Add(btnCheckProduct);
             Controls.Add(txtProductID);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Seller";
             Text = "Dashboard";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCheckProduct).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)txtAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -362,29 +378,29 @@
         private Label label1;
         private Label label2;
         private TextBox txtProductID;
-        private PictureBox pictureBox1;
+        private PictureBox btnCheckProduct;
         private GroupBox groupBox1;
         private Button btnAddOrder;
-        private TextBox txtTotalOrder;
+        private TextBox txtTotalAmount;
         private Label label3;
         private GroupBox groupBox2;
         private Label label6;
-        private TextBox textBox4;
+        private TextBox txtPrice;
         private Label label5;
         private TextBox txtProductName;
         private Label label4;
         private Button btnDeleteProduct;
         private Button btnAddProduct;
         private Label label8;
-        private TextBox txtTotalPrice;
-        private Label label7;
-        private ComboBox comboBox1;
-        private NumericUpDown txtAmount;
-        private ListView viewProduct;
+        private ComboBox cbUnit;
+        private NumericUpDown txtQuantity;
+        private ListView viewOrderDetail;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
+        private TextBox txtTotalPrice;
+        private Label label7;
     }
 }

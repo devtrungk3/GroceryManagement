@@ -35,9 +35,6 @@
             lbPageNumber = new Label();
             btnPrevious = new Button();
             btnNext = new Button();
-            viewUnit = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             btnAdd = new Button();
             txtSearch = new TextBox();
             groupBox1 = new GroupBox();
@@ -46,8 +43,10 @@
             label5 = new Label();
             txtUnitName = new TextBox();
             btnDelete = new Button();
+            viewUnit = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)viewUnit).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,7 +94,7 @@
             // 
             lbPageNumber.AutoSize = true;
             lbPageNumber.Font = new Font("JetBrains Mono", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbPageNumber.Location = new Point(576, 701);
+            lbPageNumber.Location = new Point(576, 687);
             lbPageNumber.Name = "lbPageNumber";
             lbPageNumber.Size = new Size(27, 30);
             lbPageNumber.TabIndex = 26;
@@ -103,7 +102,7 @@
             // 
             // btnPrevious
             // 
-            btnPrevious.Location = new Point(456, 701);
+            btnPrevious.Location = new Point(456, 687);
             btnPrevious.Name = "btnPrevious";
             btnPrevious.Size = new Size(94, 29);
             btnPrevious.TabIndex = 25;
@@ -113,43 +112,13 @@
             // 
             // btnNext
             // 
-            btnNext.Location = new Point(628, 701);
+            btnNext.Location = new Point(628, 687);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(94, 29);
             btnNext.TabIndex = 24;
             btnNext.Text = "Sau";
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Click += btnNext_Click;
-            // 
-            // viewUnit
-            // 
-            viewUnit.AllowUserToAddRows = false;
-            viewUnit.AllowUserToDeleteRows = false;
-            viewUnit.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            viewUnit.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            viewUnit.Location = new Point(87, 357);
-            viewUnit.Name = "viewUnit";
-            viewUnit.ReadOnly = true;
-            viewUnit.RowHeadersWidth = 51;
-            viewUnit.Size = new Size(1001, 320);
-            viewUnit.TabIndex = 23;
-            viewUnit.CellContentClick += viewUnit_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã đơn vị";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên đơn vị";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 125;
             // 
             // btnAdd
             // 
@@ -231,11 +200,36 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // viewUnit
+            // 
+            viewUnit.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            viewUnit.Font = new Font("JetBrains Mono", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewUnit.FullRowSelect = true;
+            viewUnit.GridLines = true;
+            viewUnit.Location = new Point(87, 357);
+            viewUnit.Name = "viewUnit";
+            viewUnit.Size = new Size(1001, 303);
+            viewUnit.TabIndex = 31;
+            viewUnit.UseCompatibleStateImageBehavior = false;
+            viewUnit.View = View.Details;
+            viewUnit.SelectedIndexChanged += viewUnit_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Mã đơn vị";
+            columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Tên đơn vị";
+            columnHeader2.Width = 800;
+            // 
             // Unit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 760);
+            Controls.Add(viewUnit);
             Controls.Add(btnDelete);
             Controls.Add(groupBox1);
             Controls.Add(label4);
@@ -243,7 +237,6 @@
             Controls.Add(lbPageNumber);
             Controls.Add(btnPrevious);
             Controls.Add(btnNext);
-            Controls.Add(viewUnit);
             Controls.Add(btnAdd);
             Controls.Add(txtSearch);
             Controls.Add(panel1);
@@ -253,7 +246,6 @@
             Load += Unit_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)viewUnit).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -269,7 +261,6 @@
         private Label lbPageNumber;
         private Button btnPrevious;
         private Button btnNext;
-        private DataGridView viewUnit;
         private Button btnAdd;
         private TextBox txtSearch;
         private GroupBox groupBox1;
@@ -278,7 +269,8 @@
         private Label label5;
         private TextBox txtUnitName;
         private Button btnDelete;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
+        private ListView viewUnit;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }
