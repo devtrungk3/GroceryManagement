@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -167,7 +168,7 @@ namespace GUI.vendor
                 MessageBox.Show("Xuất hóa đơn thất bại");
                 return;
             }
-            // show confirmation message before deleting
+            // show confirmation message before completed
             DialogResult dialog = MessageBox.Show($"Bạn có chắc chắn muốn hoàn tất đơn hàng không?", "Xác nhận hoàn tất", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialog != DialogResult.Yes) return;
             OrderDTO order = new OrderDTO(0, DateTime.Now, account, int.Parse(txtTotalAmount.Text));
@@ -185,10 +186,66 @@ namespace GUI.vendor
                 MessageBox.Show(message);
                 return;
             }
+            // show confirmation message before print
+            dialog = MessageBox.Show($"Bạn có muốn in hóa đơn không?", "Xác nhận hoàn tất", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                PrintDocument printDocument = new PrintDocument();
+                printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.Document = printDocument;
+
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.Print();
+                }
+            };
             ClearTextBox();
             txtTotalAmount.Text = "0";
             orderDetails.Clear();
             LoadOrderDetailTable();
         }
+
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font titleFont = new Font("Arial", 20, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 14, FontStyle.Bold);
+            Font regularFont = new Font("Arial", 14);
+            int yPosition = 20;
+            if (e.Graphics == null) return;
+            string title = "Hóa Đơn";
+            SizeF headerSize = e.Graphics.MeasureString(title, titleFont);
+            e.Graphics.DrawString(title, titleFont, Brushes.Black, (e.PageBounds.Width - headerSize.Width) / 2, yPosition);
+            yPosition += 60;
+            e.Graphics.DrawString($"Thời gian: {DateTime.Now:dd/MM/yyyy HH:mm:ss}", regularFont, Brushes.Black, 20, yPosition);
+            yPosition += 40;
+
+            // Column Headers
+            e.Graphics.DrawString("Tên sản phẩm", headerFont, Brushes.Black, 20, yPosition);
+            e.Graphics.DrawString("Đơn vị", headerFont, Brushes.Black, 300, yPosition);
+            e.Graphics.DrawString("Đơn giá", headerFont, Brushes.Black, 400, yPosition);
+            e.Graphics.DrawString("SL", headerFont, Brushes.Black, 500, yPosition);
+            e.Graphics.DrawString("Thành tiền", headerFont, Brushes.Black, 600, yPosition);
+            yPosition += 30;
+
+            foreach (OrderDetailDTO detail in orderDetails)
+            {
+                e.Graphics.DrawString(detail.ProductDTO.ProductName, regularFont, Brushes.Black, 20, yPosition);
+                e.Graphics.DrawString(detail.UnitDTO.UnitName, regularFont, Brushes.Black, 300, yPosition);
+                e.Graphics.DrawString(detail.UnitPrice.ToString("N0"), regularFont, Brushes.Black, 400, yPosition);
+                e.Graphics.DrawString(detail.Quantity.ToString(), regularFont, Brushes.Black, 500, yPosition);
+                e.Graphics.DrawString((detail.Quantity * detail.UnitPrice).ToString("N0"), regularFont, Brushes.Black, 600, yPosition);
+                yPosition += 30;
+            }
+
+            // Footer
+            yPosition += 20;
+            e.Graphics.DrawString($"Tổng tiền: {int.Parse(txtTotalAmount.Text):N0} VND", titleFont, Brushes.Black, 20, yPosition);
+
+            yPosition += 30;
+            e.Graphics.DrawString("Cảm ơn quý khách và hẹn gặp lại", regularFont, Brushes.Black, 20, yPosition);
+        }
+
     }
 }
